@@ -1,0 +1,73 @@
+[package]
+name = "py-udp-loop"
+version = "1.0.0-alpha"
+authors = ["Aditya Kresna <aditya.kresna@outlook.co.id>"]
+edition = "2018"
+license = "MIT"
+description = "Library to simplify UDP socket loop for Python."
+
+[lib]
+name = "py_udp_loop"
+crate-type = ["rlib", "cdylib", "staticlib"]
+
+[profile.dev]
+opt-level = 0
+debug = true
+rpath = false
+lto = false
+debug-assertions = true
+codegen-units = 16
+panic = 'unwind'
+incremental = true
+overflow-checks = true
+
+[profile.release]
+opt-level = 3
+debug = false
+rpath = false
+lto = true
+debug-assertions = false
+codegen-units = 1
+panic = 'abort'
+incremental = false
+overflow-checks = false
+
+[profile.test]
+opt-level = 0
+debug = 2
+rpath = false
+lto = false
+debug-assertions = true
+codegen-units = 16
+incremental = true
+overflow-checks = true
+
+[profile.bench]
+opt-level = 3
+debug = false
+rpath = false
+lto = true
+debug-assertions = false
+codegen-units = 1
+incremental = false
+overflow-checks = false
+
+[build-dependencies]
+cbindgen = "0.14.4"
+
+[package.metadata.maturin]
+classifier = [
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Rust",
+    "Operating System :: POSIX",
+    "Operating System :: MacOS :: MacOS X",
+]
+maintainer = "Aditya Kresna"
+maintainer-email = "aditya.kresna@outlook.co.id"
+
+[dependencies]
+pyo3 = { version = "0.11.1", features = ["extension-module"] }
+crossbeam-queue = "0.2.3"

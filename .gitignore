@@ -1,0 +1,14 @@
+# Directories
+build/
+target/
+venv/
+.venv/
+.vscode/
+
+# Native Linux binaries
+*.so
+*.dll
+*.a
+
+# Rust specific
+Cargo.lock
