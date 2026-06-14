@@ -1,0 +1,6 @@
+[project]
+name = "ujang-py-udp-loop"
+slug = "ujang-py-udp-loop"
+
+[amem]
+server = "https://amem.flusci.org"
